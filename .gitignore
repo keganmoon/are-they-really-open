@@ -1,0 +1,51 @@
+# Dependencies / build
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+dist/
+build/
+target/
+*.egg-info/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+token.json
+secrets.yaml
+client_secret*.json
+*client_secret*
+*credentials*
+*_token.json
+service-account*.json
+.netrc
+id_rsa*
+*.p12
+*.pfx
+
+# Data / state
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+data/
+cache/
+.cache/
+
+# Logs / OS
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp

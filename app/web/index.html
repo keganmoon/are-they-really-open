@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is Pasong's Open?</title>
+
+<!-- Favicon reflects live status — colored dot, no click required -->
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+
+<!-- Link-preview (OG) card shows OPEN/CLOSED before anyone taps the link -->
+<meta property="og:title" content="Pasong's Café">
+<meta property="og:description" content="Live open/closed status, straight from the register.">
+<meta property="og:image" content="https://ispasongsopen.com/og.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ispasongsopen.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ispasongsopen.com/og.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Pasong's Café</h1>
+    <div id="badge" class="badge unknown">Checking…</div>
+    <p id="detail" class="detail"></p>
+    <p id="hours" class="hours">114 N Michigan Ave, Saginaw, MI · (989) 791-5008</p>
+    <p class="embed-hint">
+      Embed this anywhere:
+      <code>&lt;script src="https://ispasongsopen.com/widget.js" defer&gt;&lt;/script&gt;</code>
+    </p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

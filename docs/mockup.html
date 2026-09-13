@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pasong's Open Status — Mockup</title>
+<style>
+  :root { --open:#1f9d55; --closed:#c0392b; --unknown:#999; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, sans-serif; background: #0b0b0c; color: #eee;
+    padding: 24px; display: flex; flex-direction: column; gap: 20px; align-items: center;
+  }
+  h2 { margin: 0 0 4px; font-size: 15px; color: #999; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  .row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 960px; }
+  .card {
+    background: #17181a; border: 1px solid #2a2b2e; border-radius: 12px; padding: 18px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; min-width: 260px;
+  }
+  .toggle-bar { display:flex; gap:10px; align-items:center; }
+  button {
+    background:#222; color:#eee; border:1px solid #3a3b3e; border-radius:8px; padding:8px 16px;
+    cursor:pointer; font-size:14px;
+  }
+  button.active { background: var(--open); border-color: var(--open); }
+  button.active.closed { background: var(--closed); border-color: var(--closed); }
+
+  /* --- Page mockup --- */
+  .page-mock { width: 320px; text-align:center; padding: 24px 16px; background:#111; border-radius:10px; }
+  .badge { display:inline-block; padding: .9rem 1.8rem; border-radius:999px; font-size:1.2rem; font-weight:700; letter-spacing:.04em; }
+  .badge.open { background: var(--open); }
+  .badge.closed { background: var(--closed); }
+  .detail, .hours { margin-top: .7rem; color:#aaa; font-size:.75rem; }
+
+  /* --- Favicon mockup (browser tab chrome) --- */
+  .tab-chrome { background:#2a2b2e; border-radius:8px 8px 0 0; padding:8px 10px; display:flex; align-items:center; gap:6px; width: 220px; }
+  .tab-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+  .tab-title { font-size:12px; color:#ccc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+  /* --- Link preview (OG) mockup, iMessage-style --- */
+  .imessage-bubble { background:#248bf5; border-radius:18px; padding: 4px; width: 260px; overflow:hidden; }
+  .og-card { background:#fff; border-radius:14px 14px 0 0; overflow:hidden; }
+  .og-img { width:100%; height:130px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; }
+  .og-img .big { font-size: 26px; font-weight: 800; }
+  .og-img .small { font-size: 11px; opacity:.85; margin-top:4px; }
+  .og-meta { background:#fff; padding:8px 10px; }
+  .og-meta .name { color:#111; font-size:12px; font-weight:600; }
+  .og-meta .url { color:#888; font-size:10px; }
+  .imsg-text { color:#fff; font-size:13px; padding: 4px 12px 8px; }
+
+  /* --- Widget mockup --- */
+  .widget-host { background:#fff; color:#111; border-radius:8px; padding:16px; width:260px; font-size:13px; }
+  .widget-badge { display:inline-block; font-family:system-ui,sans-serif; font-size:14px; font-weight:600; padding:6px 12px; border-radius:999px; text-decoration:none; color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="toggle-bar">
+  <span style="font-size:13px;color:#999;">Simulate status:</span>
+  <button id="btnOpen">🟢 OPEN</button>
+  <button id="btnClosed">🔴 CLOSED</button>
+</div>
+
+<div class="row">
+  <div class="card">
+    <h2>Page (index.html)</h2>
+    <div class="page-mock">
+      <div style="font-weight:600;margin-bottom:10px;">Pasong's Café</div>
+      <div id="pageBadge" class="badge open">OPEN</div>
+      <p id="pageDetail" class="detail">Last confirmed 2 min ago</p>
+      <p class="hours">114 N Michigan Ave, Saginaw, MI · (989) 791-5008</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Browser tab (favicon)</h2>
+    <div class="tab-chrome">
+      <div id="tabDot" class="tab-dot" style="background:#1f9d55;"></div>
+      <div class="tab-title">Is Pasong's Open?</div>
+    </div>
+    <p style="font-size:11px;color:#777;max-width:220px;text-align:center;">
+      Dot color alone answers the question — no click needed.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Link preview (iMessage)</h2>
+    <div class="imessage-bubble">
+      <div class="og-card">
+        <div id="ogImg" class="og-img" style="background:#1f9d55;">
+          <div class="big">OPEN NOW</div>
+          <div class="small">Confirmed 2 min ago</div>
+        </div>
+        <div class="og-meta">
+          <div class="name">Pasong's Café</div>
+          <div class="url">ispasongsopen.com</div>
+        </div>
+      </div>
+      <div class="imsg-text">hey is pasong's open rn? ispasongsopen.com</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Embeddable widget</h2>
+    <div class="widget-host">
+      Find us on Facebook — check status:
+      <div style="margin-top:8px;">
+        <a id="widgetBadge" class="widget-badge" style="background:#1f9d55;">🟢 Pasong's is OPEN</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="max-width:640px;text-align:center;color:#666;font-size:12px;">
+  This is a static mockup with a mock status toggle — swap the poller output into
+  <code>/api/status</code> and every piece above (page, favicon, OG image, widget)
+  updates automatically. No code changes needed once the API is wired in.
+</p>
+
+<script>
+function setState(open) {
+  const pageBadge = document.getElementById('pageBadge');
+  const pageDetail = document.getElementById('pageDetail');
+  const tabDot = document.getElementById('tabDot');
+  const ogImg = document.getElementById('ogImg');
+  const widgetBadge = document.getElementById('widgetBadge');
+  const btnOpen = document.getElementById('btnOpen');
+  const btnClosed = document.getElementById('btnClosed');
+
+  const color = open ? '#1f9d55' : '#c0392b';
+  pageBadge.className = 'badge ' + (open ? 'open' : 'closed');
+  pageBadge.textContent = open ? 'OPEN' : 'CLOSED';
+  pageDetail.textContent = 'Last confirmed 2 min ago';
+  tabDot.style.background = color;
+  ogImg.style.background = color;
+  ogImg.querySelector('.big').textContent = open ? 'OPEN NOW' : 'CLOSED';
+  widgetBadge.style.background = color;
+  widgetBadge.textContent = open ? '🟢 Pasong\'s is OPEN' : '🔴 Pasong\'s is CLOSED';
+
+  btnOpen.className = open ? 'active' : '';
+  btnClosed.className = !open ? 'active closed' : '';
+}
+document.getElementById('btnOpen').onclick = () => setState(true);
+document.getElementById('btnClosed').onclick = () => setState(false);
+setState(true);
+</script>
+
+</body>
+</html>
